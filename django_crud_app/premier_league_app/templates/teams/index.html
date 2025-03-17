@@ -1,0 +1,37 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/teams/teams-index.css' %}"/>
+{% endblock %} 
+{% block content %}
+
+<section class="page-header">
+  <h1>List of Teams</h1>
+  <img src="{% static '/home/jwenham/code/ga/labs/django-crud-app-lab/Liverpool_FC.svg.png' %}" alt="Liverpool" />
+  <img src="{% static 'vscode-remote://wsl%2Bubuntu/home/jwenham/code/ga/labs/django-crud-app-lab/Arsenal_FC.svg.png' %}" alt="Arsenal" />
+  <img src="{% static 'my_app/static/images/Manchester_City_FC_badge.svg.png' %}" alt="Manchester City" />
+  <img src="{% static 'my_app/static/images/Manchester_United_FC_crest.svg.png' %}" alt="Manchester United" />
+</section>
+
+<section class="card-container">
+  {% for team in teams %}
+    <div class="card">
+      <div class="card-content">
+        <div class="card-img-container">
+          <img
+            src="{% static '' %}"
+            alt="Chelsea"
+          />
+        </div>
+        <h2 class="card-title">{{ team.name }}</h2>
+        
+        {% for team in teams %}
+          <p> {{team.name}} - {{team.description}}</p>
+        {% endfor %}
+            
+      </div>
+    </div>
+  {% endfor %}
+</section>
+
+{% endblock %}
